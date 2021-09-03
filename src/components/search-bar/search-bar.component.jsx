@@ -21,7 +21,7 @@ class SearchBar extends React.Component {
             <div className='search-bar'>
                 <form className='search-form' onSubmit={this.handleSubmit}>
                     <button className='search-form__btn' type='submit'>
-                        <FontAwesomeIcon icon={faSearch} color='white' />
+                        <FontAwesomeIcon className="search-icon" icon={faSearch} />
                     </button>
                     <input
                         className='search-form__input'
