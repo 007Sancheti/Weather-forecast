@@ -31,7 +31,7 @@ const initialItems = [
     },
 ];
 
-export const ItemActiveContext = React.createContext();
+export const DropdownItemContext = React.createContext();
 
 function App() {
     const [items, setItemActive] = useState(initialItems);
@@ -45,7 +45,7 @@ function App() {
         }
     };
     return (
-        <ItemActiveContext.Provider value={setItemActive}>
+        <DropdownItemContext.Provider value={{setItemActive, handleClickedItem}}>
             <div className='App'>
                 <NavBar>
                     <NavItem icon={<CaretIcon />}>
@@ -59,7 +59,7 @@ function App() {
                     </NavItem>
                 </NavBar>
             </div>
-        </ItemActiveContext.Provider>
+        </DropdownItemContext.Provider>
     );
 }
 

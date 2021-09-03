@@ -4,7 +4,7 @@ import DropdownItem from './dropdown-item.component';
 import { ReactComponent as ArrowIcon } from '../../assets/icon-buttons/arrow.svg';
 import './dropdown-menu.css';
 
-const DropdownMenu = ({items, ...props}) => {
+const DropdownMenu = ({items}) => {
     const [activeMenu, setActiveMenu] = useState('main');
     const [menuHeight, setMenuHeight] = useState(null);
 
@@ -30,9 +30,6 @@ const DropdownMenu = ({items, ...props}) => {
                             rightIcon={item.rightIcon}
                             goToMenu={item.goToMenu}
                             setActiveMenu={setActiveMenu}
-                            clickedItem={(itemClicked) => {
-                                props.clickedItem(itemClicked);
-                            }}
                         >
                             {item.title}
                         </DropdownItem>
@@ -59,9 +56,6 @@ const DropdownMenu = ({items, ...props}) => {
                                 key={item.id}
                                 activeMenu={activeMenu}
                                 {...item}
-                                clickedItem={(itemClicked) => {
-                                    props.clickedItem(itemClicked);
-                                }}
                             >
                                 {item.title}
                             </DropdownItem>

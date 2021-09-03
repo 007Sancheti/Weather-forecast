@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import { ReactComponent as TickIcon } from '../../assets/icon-buttons/tick.svg';
-import { ItemActiveContext } from '../../App';
+import { DropdownItemContext } from '../../App';
 import './dropdown-item.css';
 
 const DropdownItem = ({
@@ -9,13 +9,13 @@ const DropdownItem = ({
     ...props
 }) => {
 
-    const setItemActive =  useContext(ItemActiveContext);
+    const {setItemActive, handleClickedItem} =  useContext(DropdownItemContext);
     
     return (
         <div
             className={`${props.active && 'active'} menu-item`}
             onClick={() => {
-                clickedItem && clickedItem(props.id);
+                handleClickedItem(props.id);
                 if (props.goToMenu) {
                     setActiveMenu(props.goToMenu);
                 } else {
