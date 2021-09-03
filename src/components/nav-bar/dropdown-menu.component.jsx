@@ -4,7 +4,7 @@ import DropdownItem from './dropdown-item.component';
 import { ReactComponent as ArrowIcon } from '../../assets/icon-buttons/arrow.svg';
 import './dropdown-menu.css';
 
-const DropdownMenu = ({items}) => {
+const DropdownMenu = React.forwardRef(({items}, box) => {
     const [activeMenu, setActiveMenu] = useState('main');
     const [menuHeight, setMenuHeight] = useState(null);
 
@@ -13,7 +13,7 @@ const DropdownMenu = ({items}) => {
         setMenuHeight(height);
     };
     return (
-        <div className='dropdown' style={{ height: menuHeight }}>
+        <div className='dropdown' ref={box} style={{ height: menuHeight }}>
             <CSSTransition
                 in={activeMenu === 'main'}
                 unmountOnExit
@@ -65,6 +65,6 @@ const DropdownMenu = ({items}) => {
             ))}
         </div>
     );
-};
+});
 
 export default DropdownMenu;

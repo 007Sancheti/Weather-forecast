@@ -45,18 +45,24 @@ function App() {
         }
     };
     return (
-        <DropdownItemContext.Provider value={{setItemActive, handleClickedItem}}>
+        <DropdownItemContext.Provider
+            value={{ setItemActive, handleClickedItem }}
+        >
             <div className='App'>
                 <NavBar>
-                    <NavItem icon={<CaretIcon />}>
-                        <DropdownMenu
-                            items={items}
-                            setItemActive={setItemActive}
-                            clickedItem={(itemClicked) => {
-                                handleClickedItem(itemClicked);
-                            }}
-                        ></DropdownMenu>
-                    </NavItem>
+                    <NavItem
+                        icon={<CaretIcon />}
+                        render={(dropdownRef) => (
+                            <DropdownMenu
+                                items={items}
+                                setItemActive={setItemActive}
+                                clickedItem={(itemClicked) => {
+                                    handleClickedItem(itemClicked);
+                                }}
+                                ref={dropdownRef}
+                            />
+                        )}
+                    ></NavItem>
                 </NavBar>
             </div>
         </DropdownItemContext.Provider>
