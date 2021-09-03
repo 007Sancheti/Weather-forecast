@@ -6,6 +6,7 @@ import { ReactComponent as BoltIcon } from './assets/icon-buttons/bolt.svg';
 import { ReactComponent as ThemeIcon } from './assets/icon-buttons/theme.svg';
 import { ReactComponent as LightIcon } from './assets/icon-buttons/light.svg';
 import DropdownMenu from './components/nav-bar/dropdown-menu.component';
+import SearchBar from './components/search-bar/search-bar.component';
 import React, { useState } from 'react';
 
 const initialItems = [
@@ -50,6 +51,7 @@ function App() {
         >
             <div className='App'>
                 <NavBar>
+                    <SearchBar />
                     <NavItem
                         icon={<CaretIcon />}
                         render={(dropdownRef) => (

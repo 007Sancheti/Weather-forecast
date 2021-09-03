@@ -17,6 +17,7 @@ code {
     --bg: #242526;
     --bg-accent1: #484a4d;
     --bg-accent2: #525357;
+    --bg-accent3: #ee8d73;
     --text-color: #dadce1;
     --nav-size: 60px;
     --border: 1px solid #474a4d;
@@ -36,6 +37,7 @@ code {
   --bg: #242526;
   --bg-accent1: #484a4d;
   --bg-accent2: #525357;
+  --bg-accent3: #ee8d73;
   --text-color: #dadce1;
 }
 
