@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import { ReactComponent as TickIcon } from '../../assets/icon-buttons/tick.svg';
-import { DropdownItemContext } from '../../App';
+import { DropdownItemContext } from '../nav-bar-container/nav-bar-container.component';
 import './dropdown-item.css';
 
 const DropdownItem = ({
