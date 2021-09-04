@@ -24,10 +24,9 @@ const HourlyForecast = ({ forecast }) => {
                     {hour} {ampm}
                 </p>
                 <p className='forecast-item__temp'>
-                    {f.temp} <span className='forecast-item__degree'>°</span>
+                    {f.temp} °
                 </p>
                 <img
-                    className='forecast-item__img'
                     src={image.url}
                     alt={image.alt}
                 />

@@ -10,10 +10,10 @@ import DropdownMenu from './components/nav-bar/dropdown-menu.component';
 import SearchBar from './components/search-bar/search-bar.component';
 import CurrentWeather from './components/current-weather/current-weather.component';
 import HourlyForecast from './components/hourly-forecast/hourly-forecast.component';
+import DailyForecast from './components/daily-forecast/daily-forecast.component';
 import * as Api from './api/weatherAPI';
 import axios from 'axios';
 
-const FARENHEIT = 'farehnheit';
 const initialItems = [
     {
         id: 'themes',
@@ -44,8 +44,8 @@ class App extends React.Component {
         super(props);
         this.state = {
             location: 'Mumbai',
-            metric: FARENHEIT,
             hourlyForecast: [],
+            dailyForecast: [],
             current: '',
             items: initialItems,
         };
@@ -59,6 +59,7 @@ class App extends React.Component {
             const geoApiUrl = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`;
             axios.get(geoApiUrl).then((res) => {
                 this.handleLocationChange(res.data.city);
+                this.updateTemperature();
             });
         };
         const error = () => {
@@ -70,11 +71,6 @@ class App extends React.Component {
     componentDidMount() {
         this.findMyState();
         this.updateTemperature();
-    }
-
-    componentDidUpdate(prevProps, prevState) {
-        if (prevState.location !== this.state.location)
-            this.updateTemperature();
     }
 
     handleLocationChange = (location) => {
@@ -90,10 +86,12 @@ class App extends React.Component {
             weatherRes.coord.lon
         );
 
+        console.log(forecastRes);
+
         this.setState({
             current: forecastRes.current,
-            metric: FARENHEIT,
             hourlyForecast: forecastRes.hourly,
+            dailyForecast: forecastRes.daily,
         });
     };
 
@@ -114,7 +112,7 @@ class App extends React.Component {
     };
 
     render() {
-        const { location, current, hourlyForecast, items } = this.state;
+        const { location, current, hourlyForecast, dailyForecast, items } = this.state;
 
         return (
             <DropdownItemContext.Provider
@@ -146,6 +144,7 @@ class App extends React.Component {
                     </NavBar>
                     {current && <CurrentWeather current={current} />}
                     {hourlyForecast.length > 0 && <HourlyForecast forecast={hourlyForecast} />}
+                    {hourlyForecast.length > 0 && <DailyForecast forecast={dailyForecast} />}
                 </div>
             </DropdownItemContext.Provider>
         );

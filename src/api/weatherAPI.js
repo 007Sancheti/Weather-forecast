@@ -13,7 +13,7 @@ const getWeatherBasedOnLocation = (location) => {
 const getForecast = (lat, lon) => {
     return axios
         .get(
-            `${baseURL}/onecall?lat=${lat}&lon=${lon}&APPID=${process.env.REACT_APP_WEATHER_FORECAST_API}`
+            `${baseURL}/onecall?lat=${lat}&lon=${lon}&APPID=${process.env.REACT_APP_WEATHER_FORECAST_API}&units=metric`
         )
         .then((res) => res.data);
 };

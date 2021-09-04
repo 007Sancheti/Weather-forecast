@@ -23,14 +23,16 @@ code {
     --border: 1px solid #474a4d;
     --border-radius: 8px;
     --speed: 500ms;
+    --bg-url: url('https://i.pinimg.com/564x/5c/92/41/5c92414763480162dfd2c1e34c1063fc.jpg');
 }
 
 .light {
-  --bg: #EDFFEC;
-  --bg-accent1: #9792E3;
-  --bg-accent2: #E5D0CC;
-  --bg-accent3: #61E786;
-  --text-color: #242526;
+    --bg: #EDFFEC;
+    --bg-accent1: #9792E3;
+    --bg-accent2: #E5D0CC;
+    --bg-accent3: #61E786;
+    --text-color: #242526;
+    --bg-url: url('https://thumbs.dreamstime.com/b/rainbow-clouds-background-sun-cloud-pastel-colored-185464716.jpg');
 }
 
 .dark {

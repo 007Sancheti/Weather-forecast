@@ -25,3 +25,9 @@
     font-size: 48px;
     margin: 2px;
 }
+
+@media (max-width: 640px) {
+    .current-weather {
+        flex-direction: column;
+    }
+}
