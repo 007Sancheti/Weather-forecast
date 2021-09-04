@@ -12,3 +12,8 @@
     justify-content: flex-end;
     align-items: center;
 }
+
+.location {
+    height: calc(--nav-size);
+    position: absolute;
+}

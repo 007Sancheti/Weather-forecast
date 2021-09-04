@@ -48,6 +48,7 @@ class App extends React.Component {
             dailyForecast: [],
             current: '',
             items: initialItems,
+            updatedLocation: '',
         };
     }
 
@@ -86,12 +87,11 @@ class App extends React.Component {
             weatherRes.coord.lon
         );
 
-        console.log(forecastRes);
-
         this.setState({
             current: forecastRes.current,
             hourlyForecast: forecastRes.hourly,
             dailyForecast: forecastRes.daily,
+            updatedLocation: this.state.location,
         });
     };
 
@@ -112,17 +112,24 @@ class App extends React.Component {
     };
 
     render() {
-        const { location, current, hourlyForecast, dailyForecast, items } = this.state;
+        const {
+            updatedLocation,
+            location,
+            current,
+            hourlyForecast,
+            dailyForecast,
+            items,
+        } = this.state;
 
         return (
-            <DropdownItemContext.Provider
-                value={{
-                    setItemActive: this.setItemActive,
-                    handleClickedItem: this.handleClickedItem,
-                }}
-            >
-                <div className='App'>
-                    <NavBar>
+            <div className='App'>
+                <DropdownItemContext.Provider
+                    value={{
+                        setItemActive: this.setItemActive,
+                        handleClickedItem: this.handleClickedItem,
+                    }}
+                >
+                    <NavBar location={updatedLocation}>
                         <SearchBar
                             searchValue={location}
                             onSearchChange={this.handleLocationChange}
@@ -142,11 +149,15 @@ class App extends React.Component {
                             )}
                         ></NavItem>
                     </NavBar>
-                    {current && <CurrentWeather current={current} />}
-                    {hourlyForecast.length > 0 && <HourlyForecast forecast={hourlyForecast} />}
-                    {hourlyForecast.length > 0 && <DailyForecast forecast={dailyForecast} />}
-                </div>
-            </DropdownItemContext.Provider>
+                </DropdownItemContext.Provider>
+                {current && <CurrentWeather current={current} />}
+                {hourlyForecast.length > 0 && (
+                    <HourlyForecast forecast={hourlyForecast} />
+                )}
+                {dailyForecast.length > 0 && (
+                    <DailyForecast forecast={dailyForecast} />
+                )}
+            </div>
         );
     }
 }
