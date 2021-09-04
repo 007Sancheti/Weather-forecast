@@ -17,3 +17,9 @@
     height: calc(--nav-size);
     position: absolute;
 }
+
+@media (max-width: 640px) {
+    .location {
+        display: none;
+    }
+}

@@ -41,7 +41,7 @@ const DailyForecast = ({ forecast }) => {
     return (
         <div>
             <h3 className='forecast-title'>Daily Forecast</h3>
-            <div className='daily-forecast-items'>{items}</div>
+            <div className='daily-forecast__items'>{items}</div>
         </div>
     );
 };
