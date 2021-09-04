@@ -1,6 +1,6 @@
 # Weather-Forecast-App
 
-This project is created with the help OpenWeatherMap API. 
+This project is created with the help OpenWeatherMap API. It also contains Dark/Light mode.
 
 ## How to run
 
