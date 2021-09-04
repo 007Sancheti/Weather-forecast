@@ -2,6 +2,12 @@
 
 This project is created with the help OpenWeatherMap API. 
 
+## How to run
+
+In order to run this project, you can run below commands in project directory:
+
+1. yarn install - to install all the dependencies.
+2. yarn start - to start the development server.
 ## Available Scripts
 
 In the project directory, you can run:
