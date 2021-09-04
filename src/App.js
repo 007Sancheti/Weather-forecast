@@ -9,6 +9,7 @@ import { ReactComponent as LightIcon } from './assets/icon-buttons/light.svg';
 import DropdownMenu from './components/nav-bar/dropdown-menu.component';
 import SearchBar from './components/search-bar/search-bar.component';
 import CurrentWeather from './components/current-weather/current-weather.component';
+import HourlyForecast from './components/hourly-forecast/hourly-forecast.component';
 import * as Api from './api/weatherAPI';
 import axios from 'axios';
 
@@ -113,7 +114,7 @@ class App extends React.Component {
     };
 
     render() {
-        const { location, current, items } = this.state;
+        const { location, current, hourlyForecast, items } = this.state;
 
         return (
             <DropdownItemContext.Provider
@@ -144,6 +145,7 @@ class App extends React.Component {
                         ></NavItem>
                     </NavBar>
                     {current && <CurrentWeather current={current} />}
+                    {hourlyForecast.length > 0 && <HourlyForecast forecast={hourlyForecast} />}
                 </div>
             </DropdownItemContext.Provider>
         );
